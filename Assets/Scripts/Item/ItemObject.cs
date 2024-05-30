@@ -15,6 +15,20 @@ public class ItemObject : MonoBehaviour, IInteractable
 {
     public ItemData data;
 
+    private Outline outline;
+    public bool isHit = false;
+
+    void Awake()
+    {
+        outline = GetComponent<Outline>();
+    }
+
+    private void OnEnable()
+    {
+        outline.enabled = isHit;
+    }
+
+
     public string GetInteractPrompt()
     {
         string str = $"{data.displayName} \n{data.description}";

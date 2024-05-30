@@ -20,6 +20,8 @@ public class Interaction : MonoBehaviour
 
     private PlayerCondition condition;
 
+    public ItemObject item;
+
     private void Start()
     {
         camera = Camera.main;
@@ -43,6 +45,17 @@ public class Interaction : MonoBehaviour
             {
                 if (hit.collider.gameObject != curInteractGameObject)
                 {
+                    if (curInteractGameObject != null)
+                    {
+                        Outline outline = curInteractGameObject.GetComponent<Outline>();
+                        if (outline != null)
+                        {
+                            outline.enabled = false;
+                        }
+                    }
+
+                    // Outline 활성화
+
                     curInteractGameObject = hit.collider.gameObject;
                     curInteractable = hit.collider.GetComponent<IInteractable>();
                     SetPromptText();
@@ -50,6 +63,8 @@ public class Interaction : MonoBehaviour
             }
             else
             {
+                // Outline 비활성화
+
                 curInteractGameObject = null;
                 curInteractable = null;
                 promptText.gameObject.SetActive(false);
@@ -68,6 +83,7 @@ public class Interaction : MonoBehaviour
         if (context.phase == InputActionPhase.Started && curInteractable != null)
         {
             curInteractable.OnInteract();
+
             if (curInteractGameObject.GetComponent<ItemObject>().data.type == ItemType.Consumable)
             {
                 ItemDataConsumable[] consumables = curInteractGameObject.GetComponent<ItemObject>().data.consumables;
