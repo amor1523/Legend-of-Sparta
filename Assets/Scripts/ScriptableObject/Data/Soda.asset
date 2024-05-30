@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 464e8c269d1f94942a1d1bcd7e94a335, type: 3}
+  m_Name: Soda
+  m_EditorClassIdentifier: 
+  displayName: "\uD0C4\uC0B0\uC74C\uB8CC"
+  description: "\uC2A4\uD14C\uBBF8\uB098\uB97C \uBAA8\uB450 \uD68C\uBCF5\uD569\uB2C8\uB2E4."
+  type: 1
+  icon: {fileID: 21300000, guid: 43046426625693b41b1c2ee199d4c15a, type: 3}
+  dropPrefab: {fileID: 4781972600589544039, guid: 7af3d74a76f43d64784d42525dc068c6, type: 3}
+  consumables:
+  - type: 1
+    value: 100
