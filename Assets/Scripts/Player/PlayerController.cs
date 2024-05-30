@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed;
     private Vector2 curMovementInput;
-    //public float junpForce; 이따가
-    //public LayerMask groundLayerMask;
+    public float jumpForce;
+    public LayerMask groundLayerMask; // 자기 자신이 Layer에 감지되는 경우 방지하기위해 선언한 변수
 
     [Header("Look")]
     public Transform cameraContainer;
@@ -20,12 +20,9 @@ public class PlayerController : MonoBehaviour
     public float maxXLook;
     private float camCurXRot;
     public float lookSensitivity;
+
     public Vector2 mouseDelta;
     
-
-    
-
-
     [HideInInspector]
     public bool canLook = true;
 
@@ -55,7 +52,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void CameraLook()
+    private void CameraLook()
     {
         // camCurXRot 으로 mouseDelta의 y값을 받아온다.
         camCurXRot += mouseDelta.y * lookSensitivity;
@@ -95,4 +92,33 @@ public class PlayerController : MonoBehaviour
         _rigidbody.velocity = dir;
     }
 
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started && IsGrounded())
+        {
+            _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
+        }
+    }
+
+    private bool IsGrounded()
+    {
+        float rayLength = 1.3f; // rayLength조절로 점프 조작감 및 판정을 조절할 수 있다.
+        Ray[] rays = new Ray[4]
+        {
+            new Ray(transform.position + (transform.forward * 0.2f) + (transform.up * 0.5f), Vector3.down),
+            new Ray(transform.position + (-transform.forward * 0.2f) + (transform.up * 0.5f), Vector3.down),
+            new Ray(transform.position + (transform.right * 0.2f) + (transform.up * 0.5f), Vector3.down),
+            new Ray(transform.position + (-transform.right * 0.2f) + (transform.up * 0.5f), Vector3.down)
+        };
+
+        for (int i = 0; i < rays.Length; i++)
+        {
+            //Debug.DrawRay(rays[i].origin, rays[i].direction * rayLength, Color.red, 1f); // Ray시각화
+            if (Physics.Raycast(rays[i], rayLength, groundLayerMask))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
