@@ -25,4 +25,25 @@ CameraController 스크립트를 만들어 Start에서 Offset을 넣어 분리�
 
 5. 인게임 UI 구현
 
-6. 
+6. 아이템 데이터 및 아이템 구현
+
+<트러블 슈팅>
+
+Interactio을 구현 중 3인칭이다 보니 타겟팅이 이상하게 되는 현상 발견
+Player 중심에서 Ray를 쏴주려고 했으나 시점에 따른 원만한 타겟팅이 어려워 계획 변경
+기존 방법에서 MaxCheckDistance의 수치를 높여주었더니 타겟팅이 잘 되었다.
+
+![image](https://github.com/amor1523/Legend-of-Sparta/assets/167174802/f9f38d5c-4e83-426c-872a-1bec989e9966)
+
+<트러블 슈팅...>
+중간에 Soda Object에 PromptText가 NullException이 뜨는 문제 발생...
+스크립트가 2개 들어가있었다...
+
+ray가 적중했을 때 아웃라인도 넣기
+해보려그랬는데 과제제출까지 작성을 못해서 튜터님께 조언을 구해 알아보기로 함.
+
+7. 아이템 사용 구현
+
+8. 점프대 구현
+
+![image](https://github.com/amor1523/Legend-of-Sparta/assets/167174802/ead796ba-6ea2-4750-9b9e-e692cade5967)
