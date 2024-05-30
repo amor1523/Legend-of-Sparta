@@ -23,6 +23,8 @@ CameraController 스크립트를 만들어 Start에서 Offset을 넣어 분리�
 
 좌우 시점의 경우는 문제가 없었으나 상하 시점을 변경할 때는 CameraContainer 안에 Camera를 넣어 CameraContainer를 회전시켜주었다. (위아래 시점변경의 경우 플레이어 주변의 궤도를 도는 위성처럼 효과를 내었다.)
 
+마지막으로 Offset은 Main Camera의 Transform Position을 (0, 2, -6)으로 직접 설정해주었다.
+
 5. 인게임 UI 구현
 
 6. 아이템 데이터 및 아이템 구현
@@ -36,6 +38,7 @@ Player 중심에서 Ray를 쏴주려고 했으나 시점에 따른 원만한 타
 ![image](https://github.com/amor1523/Legend-of-Sparta/assets/167174802/f9f38d5c-4e83-426c-872a-1bec989e9966)
 
 <트러블 슈팅...>
+
 중간에 Soda Object에 PromptText가 NullException이 뜨는 문제 발생...
 스크립트가 2개 들어가있었다...
 
