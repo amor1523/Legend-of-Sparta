@@ -533,7 +533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkRate: 0.05
-  maxCheckDistance: 3
+  maxCheckDistance: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 128
@@ -1706,7 +1706,7 @@ MonoBehaviour:
   curValue: 0
   startValue: 100
   maxValue: 100
-  passiveValue: 0.2
+  passiveValue: 1
   uiBar: {fileID: 316287852}
 --- !u!1 &1808971814
 GameObject:

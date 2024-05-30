@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 public class PlayerCondition : MonoBehaviour
 {
@@ -20,6 +21,16 @@ public class PlayerCondition : MonoBehaviour
             Die();
         }
 
+    }
+
+    public void Heal(float amount)
+    {
+        health.Add(amount);
+    }
+
+    public void Drink(float amount)
+    {
+        stamina.Add(amount);
     }
 
     private void Die()
