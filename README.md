@@ -42,8 +42,26 @@ Player 중심에서 Ray를 쏴주려고 했으나 시점에 따른 원만한 타
 중간에 Soda Object에 PromptText가 NullException이 뜨는 문제 발생...
 스크립트가 2개 들어가있었다...
 
-ray가 적중했을 때 아웃라인도 넣기
-해보려그랬는데 과제제출까지 작성을 못해서 튜터님께 조언을 구해 알아보기로 함.
+ray가 적중했을 때 오브젝트에 아웃라인도 넣기
+강의에서 들은 내용으로 Outline을 구현하려고 했으나 Outline 컴포넌트는 UI 속성이기 때문에 아무리 해도 구현되지 않았던 것...
+이를 구현하려면 Shader로 구현을 하기위해 Unlit Graph(3D에서 빛에 반응하지 않는 그래프를 만들 때)를 사용해야함...
+
+Window > Package Manager> Packages: Unity resistry에서 universal RP를 Install해준 뒤
+프로젝트창에서에서 Creat > Rendering > URP Universal Render 를 하면 파일이 생성된다.
+(New Custom Universal Renderer Data)
+
+Edit > Project setting > Graphics 에서 Scriptable Render Pipeline Settings의 None을 생성한 파일로 바꿔준다.
+
+edit > render pipeline > universal render pipeline > upgrade project meterials ... 
+
+Project 창 Shader폴더 Create - Shader Graph - URP - Unlit Shader Graph 를 생성해주고 값을 설정했다.
+
+기존 파일들이 다 분홍색으로 처리되어 추후 URP로 프로젝트 진행 시 진행해보자...
+
+
+[쉐이더 참고] 
+https://www.youtube.com/watch?v=KnueAgpUL3Y&t=495s
+https://www.youtube.com/watch?v=Bm6Bmcjd1Mw
 
 7. 아이템 사용 구현
 
